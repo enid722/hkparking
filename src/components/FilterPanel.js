@@ -10,6 +10,13 @@ function FilterPanel(props) {
     const carParkInfo = useSelector(state => state.carParkInfo);
     const {info, loading, error} = carParkInfo;
 
+    useEffect(() => {
+        dispatch(listCarParkInfo());    
+        return () => {
+            //
+        };
+    },[])
+
     const submitHandler = (e) =>{
         e.preventDefault();
         dispatch(listCarParkInfo(search, vehicleType));
