@@ -1,12 +1,16 @@
 import {createStore, combineReducers, applyMiddleware, compose} from 'redux';
 import thunk from 'redux-thunk';
-import { carParkInfoReducer, carParkVacancyReducer } from './reducers/carparkReducer';
+import { carParkFilterReducer, carParkInfoReducer, carParkSelectionReducer, carParkVacancyReducer } from './reducers/carparkReducer';
 
 
-const initialState = {};
+//const initialState = {carParkFilter:{vehicleTypeFilter: "privateCar", districtFilter: ""}};
+const initialState = {carParkFilter:{vehicleTypeFilter: "privateCar", districtFilter: {}}};
+
 const reducer = combineReducers({
     carParkInfo: carParkInfoReducer,
     carParkVacancy: carParkVacancyReducer,
+    carParkFilter: carParkFilterReducer, 
+    carParkSelection:carParkSelectionReducer,
 })
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
